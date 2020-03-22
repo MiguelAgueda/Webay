@@ -5,7 +5,7 @@ from db_tools import UserDBTools
 
 
 u_tools = UserDBTools()
-u_tools.local = False
+u_tools.local = True
 
 # configuration
 DEBUG = True
