@@ -3,9 +3,9 @@
 Welcome to Webay! This is the home of our Webay frontend source code.
 
 ## Helpful Documentation
-[Getting Started with Vue]("https://vuejs.org/v2/guide/")
+[Getting Started with Vue](https://vuejs.org/v2/guide/)
 
-[Bootstrap-Vue Documentation]("https://getbootstrap.com/docs/4.0/getting-started/introduction/")
+[Bootstrap-Vue Documentation](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
 
 ## Project setup
