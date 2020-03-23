@@ -12,6 +12,8 @@ new Vue({
   router,
   render: (h) => h(App),
   data: {
+    authenticated: false,
+    loggedInAs: '',
     msg: '',
   },
 }).$mount('#app');
