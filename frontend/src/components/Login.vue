@@ -55,7 +55,7 @@ export default {
       this.userData.valid = false;
     },
     userLogin(payload) {
-      const path = 'http://localhost:8080/api/login';
+      const path = '/api/login';
       axios.post(path, payload).then((response) => {
         console.log(response);
         if (response.data.valid === 'true') {

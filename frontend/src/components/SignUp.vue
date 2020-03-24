@@ -80,7 +80,7 @@ export default {
       this.userData.valid = false;
     },
     postUserData(payload) {
-      const path = 'http://localhost:8080/api/signup';
+      const path = '/api/signup';
       axios.post(path, payload).then((result) => {
         if (result.data.valid === 'true') {
           this.$router.replace({ name: 'Home' });
