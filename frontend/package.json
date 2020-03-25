@@ -1,7 +1,7 @@
 {
-  "name": "frontend",
+  "name": "Webay",
   "version": "1.0.0",
-  "description": "A frontend for the Webay Webstor.",
+  "description": "A frontend for the Webay Webstore.",
   "author": "Miguel Agueda <40192229+MiguelAgueda@users.noreply.github.com>",
   "private": true,
   "scripts": {

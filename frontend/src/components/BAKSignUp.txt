@@ -1,0 +1,52 @@
+SignUp.Vue Template from 03/24 @ 10:23a.m.
+
+<template>
+  <form class="need-validation" novalidate>
+    <h1>Welcome! Let's get you set up with an account</h1>
+    <div class="form-group row">
+      <div class="col-md-2 mb-3">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span
+              class="input-group-text"
+              id="validationTooltipUsername"
+              aria-describedby="validationTooltipUsernamePrepend"
+              >@</span
+            >
+          </div>
+          <input
+            type="text"
+            class="form-control"
+            id="validationTooltipUsername"
+            v-model="userData.username"
+            aria-describedby="validationTooltipUsernamePrepend"
+            placeholder="Username"
+            required
+          />
+          <div class="invalid-tooltip">
+            Please choose a unique and valid username.
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3 mb-3">
+        <div class="input-group">
+          <input
+            type="password"
+            class="form-control"
+            id="validationTooltipPassword"
+            v-model="userData.password"
+            placeholder="Password"
+            required
+          />
+          <div class="invalid-tooltip">
+            Please choose a password.
+          </div>
+        </div>
+      </div>
+      <div for="submitButton" class="col-md-4 mb-3">
+        <b-button v-on:click="onSubmit" variant="primary">Join</b-button>
+      </div>
+    </div>
+  </form>
+</template>

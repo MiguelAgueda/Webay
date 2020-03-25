@@ -1,52 +1,26 @@
 <template>
-  <form class="need-validation" novalidate>
-    <h1>Welcome! Let's get you set up with an account</h1>
-    <div class="form-group row">
-      <div class="col-md-2 mb-3">
-        <div class="input-group">
-          <div class="input-group-prepend">
-            <span
-              class="input-group-text"
-              id="validationTooltipUsername"
-              aria-describedby="validationTooltipUsernamePrepend"
-              >@</span
-            >
-          </div>
-          <input
-            type="text"
-            class="form-control"
-            id="validationTooltipUsername"
-            v-model="userData.username"
-            aria-describedby="validationTooltipUsernamePrepend"
-            placeholder="Username"
-            required
-          />
-          <div class="invalid-tooltip">
-            Please choose a unique and valid username.
-          </div>
-        </div>
-      </div>
+  <b-container class="pl-4 pr-4">
+    <b-row class="text-left mb-4">
+      <h1>Welcome! Let's get you set up with an account</h1>
+    </b-row>
+    <b-row cols="3" class="text-center mb-4">
+      <b-input-group prepend="Username" label="Username:">
+        <b-form-input type="text" v-model="userData.username"></b-form-input>
+      </b-input-group>
+    </b-row>
 
-      <div class="col-md-3 mb-3">
-        <div class="input-group">
-          <input
-            type="password"
-            class="form-control"
-            id="validationTooltipPassword"
-            v-model="userData.password"
-            placeholder="Password"
-            required
-          />
-          <div class="invalid-tooltip">
-            Please choose a password.
-          </div>
-        </div>
-      </div>
-      <div for="submitButton" class="col-md-4 mb-3">
-        <b-button v-on:click="onSubmit" variant="primary">Join</b-button>
-      </div>
-    </div>
-  </form>
+    <b-row cols="3" class="text-center mb-4">
+      <b-input-group prepend="Password ">
+        <b-form-input
+          type="password"
+          v-model="userData.password"
+        ></b-form-input>
+      </b-input-group>
+    </b-row>
+    <b-row class="text-left mb-4">
+      <b-button v-on:click="onSubmit" variant="warning">Sign Up</b-button>
+    </b-row>
+  </b-container>
 </template>
 
 <script>
@@ -62,15 +36,17 @@ export default {
       return this.userData.password.length > 0;
     },
     submitState() {
-      return this.userData.username.length > 0 && this.userData.password.length > 0;
-    },
+      return (
+        this.userData.username.length > 0 && this.userData.password.length > 0
+      );
+    }
   },
   data() {
     return {
       userData: {
         username: '',
-        password: '',
-      },
+        password: ''
+      }
     };
   },
   methods: {
@@ -81,24 +57,29 @@ export default {
     },
     postUserData(payload) {
       const path = '/api/signup';
-      axios.post(path, payload).then((result) => {
+      axios.post(path, payload).then(result => {
         if (result.data.valid === 'true') {
+          this.$root.authenticated = true;
+          this.$root.loggedInAs = payload.username;
           this.$router.replace({ name: 'Home' });
         }
       });
     },
     onSubmit(event) {
       event.preventDefault();
-      if (this.userData.username.length > 0 && this.userData.password.length > 0) {
+      if (
+        this.userData.username.length > 0 &&
+        this.userData.password.length > 0
+      ) {
         const payload = {
           username: this.userData.username,
-          password: this.userData.password,
+          password: this.userData.password
         };
-        this.initForm();
+        // this.initForm();
         this.postUserData(payload);
       }
-    },
+    }
   },
-  created() {},
+  created() {}
 };
 </script>

@@ -9,32 +9,31 @@ Vue.use(VueRouter);
 
 const routes = [
   {
-    path: '/home',
+    path: '/',
     name: 'Home',
-    component: Home,
+    component: Home
   },
   {
     path: '/signup',
     name: 'SignUp',
-    component: SignUp,
+    component: SignUp
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login,
+    component: Login
   },
-
   {
     path: '/ping',
     name: 'Ping',
-    component: Ping,
-  },
+    component: Ping
+  }
 ];
 
 const router = new VueRouter({
   mode: 'history',
   base: process.env.BASE_URL,
-  routes,
+  routes
 });
 
 export default router;
