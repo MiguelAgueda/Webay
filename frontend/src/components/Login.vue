@@ -37,6 +37,9 @@
 
 <script>
 const axios = require('axios').default;
+axios.defaults.validateStatus = () => {
+  return true;
+};
 
 export default {
   name: 'Login',
