@@ -60,7 +60,7 @@ We will also use online articles about sorting algorithms and best practices.
 
 Official Python Docs, Official Python Flask Docs, Official JavaScript Docs,
 Official Vuejs Docs, Official C++ Docs, Github, StackOverflow, YouTube,
-Learn Python the Hard Way (3rd, Zed Shaw), Python Crash Course (Matthes)
+Learn Python the Hard Way (3rd, Zed Shaw), Python Crash Course (Matthes), 
 Effective Modern C++ (Meyers)
 
 ## Discussion
@@ -87,6 +87,9 @@ have covered search algorithms in lecture.
 Official Python Documentation
 
 Learning Python the Hard Way 3rd ed., Zed Shaw
+
+Python Crash Course, Eric Matthes
+
 Effective Modern C++, Scott Meyers
 
 Official Vuejs Documentation
