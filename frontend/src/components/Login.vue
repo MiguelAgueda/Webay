@@ -59,9 +59,9 @@ export default {
     userLogin(payload) {
       const path = '/api/login';
       axios.post(path, payload).then((response) => {
-        console.log(response);
+        // console.log(response);
         if (response.data.valid === 'true') {
-          console.log('User authenticated.');
+          // console.log('User authenticated.');
           this.$root.authenticated = true;
           this.$root.loggedInAs = payload.username;
           this.$router.replace({ name: 'Home' });
@@ -84,6 +84,5 @@ export default {
       }
     },
   },
-  created() {},
 };
 </script>

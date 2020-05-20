@@ -1,7 +1,6 @@
 <template>
   <b-container class="text-center">
-    <h1 class="pt-2">Let's make some noise!</h1>
-    <h3 class="pb-4">Press on a button to hear the sound</h3>
+    <h1 class="pt-2">Listings will go here, somewhere.</h1>
     <b-row v-for="row in rows" :key="row[0].letter">
       <b-card-group deck class=" pb-4 mx-auto" v-for="letter in row" :key="letter.letter">
         <!-- <b-card-group> -->

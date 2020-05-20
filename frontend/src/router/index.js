@@ -6,6 +6,7 @@ import Login from '@/components/Login.vue';
 import Ping from '@/components/Ping.vue';
 import Forum from '@/components/Forum.vue';
 import Listings from '@/components/Listings.vue';
+import ReplyPage from '@/components/ReplyPage.vue';
 
 Vue.use(VueRouter);
 
@@ -37,6 +38,10 @@ const routes = [
   {
     path: '/listings',
     component: Listings,
+  },
+  {
+    path: '/ReplyPage',
+    component: ReplyPage,
   },
 ];
 

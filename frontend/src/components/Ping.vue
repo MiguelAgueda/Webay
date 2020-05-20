@@ -1,6 +1,7 @@
 <template>
   <div class="container">
     <button type="button" class="btn btn-primary">{{ msg }}</button>
+    <h3>{{ msg }}</h3>
   </div>
 </template>
 
