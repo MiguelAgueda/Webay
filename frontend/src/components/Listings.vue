@@ -1,17 +1,29 @@
 <template>
-  <b-container class="text-center">
-    <h1 class="pt-2">Listings will go here, somewhere.</h1>
-    <b-row v-for="row in rows" :key="row[0].letter">
-      <b-card-group deck class=" pb-4 mx-auto" v-for="letter in row" :key="letter.letter">
-        <!-- <b-card-group> -->
-        <b-card img-top style="max-width: 15rem;" :img-src="letter.image">
-          <b-card-title>
-            <b-button href="#" variant="success" @click.prevent="playSound(letter.sound)"
-              ><H2>{{ letter.letter }}</H2></b-button
-            >
-          </b-card-title>
+  <b-container class="text-left">
+    <div class="text-right">
+      <b-row>
+        <b-col class="cols-12">
+          <b-button href="/new_listing" variant="primary">New Listing</b-button>
+        </b-col>
+      </b-row>
+    </div>
+    <b-row v-for="listing in listings" :key="listing._id">
+      <b-col class="cols-12">
+        <b-card>
+          <b-card-title> {{ listing.title }} </b-card-title>
+          <b-card-subtitle> {{ listing.description }} </b-card-subtitle>
+          <b-card-text> ${{ listing.price }} </b-card-text>
+          <!-- Insert delete/edit icons -->
+          <div class="text-right">
+            <b-button v-on:click="editListing(listing._id)"
+              ><b-icon-pencil></b-icon-pencil
+            ></b-button>
+            <b-button v-on:click="deleteListing(listing._id)"
+              ><b-icon-trash></b-icon-trash
+            ></b-button>
+          </div>
         </b-card>
-      </b-card-group>
+      </b-col>
     </b-row>
   </b-container>
 </template>
@@ -23,32 +35,28 @@ export default {
   name: 'Listings',
   data() {
     return {
-      rows: this.getAlphabetRows(),
+      listings: [],
     };
   },
   methods: {
-    playSound(sound) {
-      const audio = new Audio(sound);
-      audio.play();
-    },
     getListings() {
-      const path = '/api/listings';
+      const path = '/api/listings/get_listings';
       Axios.get(path).then((result) => {
-        return result;
+        this.listings = result.data;
       });
     },
-    formatListings() {
-      const rows = [];
-      const listings = this.getListings();
-      for (let i = 0; i < alphabet.length; i += itemsPerRow) {
-        const row = [];
-        for (let j = 0; j < itemsPerRow; j += 1) {
-          if (i + j < alphabet.length) row.push(alphabet[i + j]);
-        }
-        rows.push(row);
-      }
-      return rows;
+    editListing(_id) {
+      this.$router.push({ path: '/edit_listing', query: { id: _id } });
     },
+    deleteListing(_id) {
+      const path = '/api/listings/delete_listing';
+      Axios.post(path, { _id: _id });
+      this.getListings();
+    },
+  },
+  created() {
+    this.getListings();
+    // console.log(this.$router.query.id);
   },
 };
 </script>

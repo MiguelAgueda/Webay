@@ -4,8 +4,10 @@ import Home from '@/components/Home.vue';
 import SignUp from '@/components/SignUp.vue';
 import Login from '@/components/Login.vue';
 import Ping from '@/components/Ping.vue';
-import Forum from '@/components/Forum.vue';
 import Listings from '@/components/Listings.vue';
+import NewListing from '@/components/NewListing.vue';
+import EditListing from '@/components/EditListing.vue';
+import Forum from '@/components/Forum.vue';
 import ReplyPage from '@/components/ReplyPage.vue';
 
 Vue.use(VueRouter);
@@ -36,12 +38,20 @@ const routes = [
     component: Forum,
   },
   {
+    path: '/ReplyPage',
+    component: ReplyPage,
+  },
+  {
     path: '/listings',
     component: Listings,
   },
   {
-    path: '/ReplyPage',
-    component: ReplyPage,
+    path: '/new_listing',
+    component: NewListing,
+  },
+  {
+    path: '/edit_listing',
+    component: EditListing,
   },
 ];
 
