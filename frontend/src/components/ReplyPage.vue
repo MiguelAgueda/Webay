@@ -29,11 +29,8 @@ export default {
   },
   methods: {
     getOP() {
-      // console.log('Query Incoming!');
-      // console.log(this.$route.query.op_id);
       const path = '/api/forum/get_post';
       const payload = { op_id: this.op_id };
-      // console.log(payload);
       Axios.post(path, payload).then((result) => {
         this.post = result.data;
       });
@@ -42,12 +39,10 @@ export default {
     submitReply() {
       const path = '/api/forum/create_child';
       const payload = {};
-      // if (this.$root.authenticated) {
-      // payload.username = this.$root.loggedInAs;
+      // Todo: Keep users logged in as to use their username in replies.
       payload.username = 'AnonymousUser';
       payload.content = this.reply_content;
       payload.op_id = this.op_id;
-      // console.log(payload);
       Axios.post(path, payload);
       this.$router.push('/forum');
     },
